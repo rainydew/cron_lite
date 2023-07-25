@@ -56,7 +56,8 @@ def _start():
     for base_func, scheduler in scheduler_map.items():
         print("Registering Job:", base_func.__name__)
         t = threading.Thread(target=_run_sched, args=(scheduler, ), daemon=True)
-        # 有些task非常耗时，会影响退出。目前设计改为退出时不保证task完成
+        # some tasks were slow and may block exiting. Using daemon=True to avoid it but notice the job may not be done
+        # during upgrading, unless you use signal handlers to handle SIGINT and SIGTERM etc
         t.start()
         tl.append(t)
 
