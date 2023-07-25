@@ -19,7 +19,7 @@ def run_tests():
 
     th = start_all(spawn=True)
     print("start")
-    time.sleep(60)
+    time.sleep(30)
     print("stop")
     stop_all(th)
     print("done")

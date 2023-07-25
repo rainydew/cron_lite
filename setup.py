@@ -6,7 +6,7 @@ from sys import argv
 
 if "upload" in argv:
     print("running test")
-    assert system("python test_cron_lite.py") == 0
+    assert system("python3.6 test_cron_lite.py") == 0
 
 this_directory = path.abspath(path.dirname(__file__))
 
@@ -18,13 +18,13 @@ except:
 
 setup(
     name='cron-lite',
-    version='1.0',
+    version='1.1',
     description='A very light library to run python functions like cron jobs do.',
     author='Rainy Chan',
     author_email='rainydew@qq.com',
     url='https://github.com/rainydew/cron_lite',
     py_modules=["cron_lite"],
-    install_requires=['croniter>=1.3.4'],
+    install_requires=['croniter>=1.3.4', 'pytz>=2022.7'],
     keywords='cron task decorator schedule',
     long_description=long_description,
     python_requires=">=3.6"

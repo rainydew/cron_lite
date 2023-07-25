@@ -1,12 +1,14 @@
 # cron_lite
-A very light library to run python functions like cron jobs do. (support cron expressions, decorator style, spawn running and graceful exit. Runs in python service like Apscheduler, no effect of system config)
+A very light library to run python functions like cron jobs do. (support cron expressions with timezone, decorator style, spawn running and graceful exit. Runs in python service like Apscheduler, no effect of system config)
 
 
 ### Example
 
 ```python
-from cron_lite import cron_task, start_all, stop_all
+from cron_lite import cron_task, start_all, stop_all, set_time_zone
 import time
+
+set_time_zone("Asia/Shanghai")
 
 
 @cron_task("* * * * * 0/2")
